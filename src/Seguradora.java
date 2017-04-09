@@ -1,6 +1,7 @@
 
 public class Seguradora {
-	
+/*
+ * Provaveis funcionalidades	
 	void cadastroClientes(){
 		
 	}
@@ -32,5 +33,5 @@ public class Seguradora {
 	void persistenciaSerialização(){
 		
 	}
-	
+*/
 }
