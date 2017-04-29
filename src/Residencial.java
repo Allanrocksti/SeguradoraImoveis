@@ -3,7 +3,7 @@ public class Residencial extends Contratos {
 
 	private String endereco;
 	private String zonaImovel;
-	private String tipoResidencia;
+	private boolean tipoResidencia; // 1 - casa 2 - apt
 
 	public String getZonaImovel() {
 		return zonaImovel;
@@ -13,20 +13,20 @@ public class Residencial extends Contratos {
 		this.zonaImovel = zonaImovel;
 	}
 
-	public String getTipoResidencia() {
-		return tipoResidencia;
-	}
-
-	public void setTipoResidencia(String tipoResidencia) {
-		this.tipoResidencia = tipoResidencia;
-	}
-
 	public String getEndereco() {
 		return endereco;
 	}
 
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
+	}
+
+	public boolean isTipoResidencia() {
+		return tipoResidencia;
+	}
+
+	public void setTipoResidencia(boolean tipoResidencia) {
+		this.tipoResidencia = tipoResidencia;
 	}
 
 }
