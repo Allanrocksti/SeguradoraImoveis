@@ -4,20 +4,37 @@ public class Seguradora {
 	public float calcularSeguro(Contratos contrato) {
 		
 		float valorSeguro = 0.0f;
-		
-			if(contrato.isTipoConta())
-				valorSeguro = calculaSeguroResidencial(contrato);
-			else
-				valorSeguro = calculaSeguroEmpresarial(contrato);
+			
+			if(contrato.isTipoConta() == true){
+				
+				try {
+					valorSeguro = calculaSeguroResidencial(contrato);
+				} catch (Exception e) {
+					e.printStackTrace();
+					System.out.println("Impossível calcular o seguro :(");
+				}
+				
+			}else if(contrato.isTipoConta() == false){
+				
+				try {
+					valorSeguro = calculaSeguroEmpresarial(contrato);
+				} catch (Exception e) {
+					e.printStackTrace();
+					System.out.println("Impossível calcular o seguro :(");
+				}
+				
+			}
 		
 		return valorSeguro;
 		
 	}
 
-	private float calculaSeguroEmpresarial(Contratos contrato) {
-	
+	private float calculaSeguroResidencial(Contratos contrato) throws Exception {
+			
+		float total = 0;
+			
 		Residencial res = new Residencial();
-		float total = contrato.getValorImovel();
+		total = contrato.getValorImovel();
 		
 		total += (total * 0.02);
 		
@@ -28,15 +45,18 @@ public class Seguradora {
 		
 		if(res.isTipoResidencia())
 			total += (total * 0.005);
-			
+				
 		return total;
-		
+			
 	}
-
-	private float calculaSeguroResidencial(Contratos contrato) {
 	
+	private float calculaSeguroEmpresarial(Contratos contrato) throws Exception {
+				
+		float total = 0;
+			
 		Empresarial emp = new Empresarial();
-		float total = contrato.getValorImovel();
+		
+		total = contrato.getValorImovel();
 		
 		total += (total * 0.04);
 		
@@ -48,9 +68,10 @@ public class Seguradora {
 			total += (total * 0.01);
 		else if(emp.getRamo() == "Comércio")
 			total += (total * 0.005);
-			
+	
 		return total;
 		
 	}
+
 }
 
